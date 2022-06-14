@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cap3</title>
+    <style>
+        #canvas_teclado_1 {
+            background-color: gainsboro;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas_teclado_1" width="500" height="500"></canvas>
+
+    <script>
+        let canvas = document.getElementById("canvas_teclado_1");
+        let context = canvas.getContext("2d");
+
+        let posicao = 0; // Posição inicial
+        desenharPersonagem();
+
+        document.addEventListener('keydown', function(event) {
+            if(event.keyCode == 37) { // Seta para esquerda
+                posicao -= 10;
+                desenharPersonagem();
+            }
+
+            else if(event.keyCode == 39) { // Seta para direita
+                posicao += 10;
+                desenharPersonagem();
+            }
+        });
+
+        function desenharPersonagem() {
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            context.fillRect(posicao, 220, 20, 30);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testando a classe Spritesheet</title>
+    <script src="js/Spritesheet.js"></script>
+    <script src="js/Animacao.js"></script>
+    <script src="js/Teclado.js"></script>
+    <script src="js/Sonic.js"></script>
+    <style>
+        body{
+            display: grid;
+            place-items: center;
+            background-color: black;
+        }
+
+        #canvas_sonic {
+            background-color: white;
+            /* outline: 1px solid red; */
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas_sonic" width="700" height="700"></canvas>
+    <script>
+        var canvas = document.getElementById("canvas_sonic");
+        var context = canvas.getContext("2d");
+
+        var teclado = new Teclado(document);
+        var animacao = new Animacao(context);
+
+        var imgSonic = new Image();
+        imgSonic.src = "spritesheet.png";
+
+        var sonic = new Sonic(context, teclado, imgSonic);
+        sonic.x = 0;
+        sonic.y = 300;
+        animacao.novoSprite(sonic);
+
+        imgSonic.onload = function() {
+            animacao.ligar();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // let teclado = new Teclado(document);
+        // let animacao = new Animacao(context);
+
+        // // let imgSonic = new Image();
+        // imgSonic.src = "spritesheet.png";
+
+        // let sonic = new Sonic(context, teclado, imgSonic);
+        // sonic.x = 0;
+        // sonic.y = 200;
+        // animacao.novoSprite(sonic);
+
+        // animacao.ligar();
+
+
+
+   
+        // sheet.intervalo = 60;
+
+        // sheet.linha = 1;
+
+        // imgSonic.onload = gameLoop;
+
+        // function gameLoop() {
+        //     context.clearRect(0, 0, context.canvas.width, context.canvas.height);
+
+        //     sheet.proximoQuadro();
+
+        //     sheet.desenhar(100, 100);
+
+        //     requestAnimationFrame(gameLoop);
+        // }
+
+        // imgSonic.onload = function() {
+        //     animacao.ligar();
+        // }
+    </script>
+</body>
+</html>
